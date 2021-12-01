@@ -17,7 +17,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            background: linear-gradient(19deg, #24d4fd 0%, #b721ff);
+            background: linear-gradient(#e66464, #9198e5);
         }
         h1{
             color: white;
@@ -47,24 +47,48 @@
             color: white;
             border: none;
         }
+        .heading-dev{
+            text-align: right;
+            position: fixed;
+            /* background: linear-gradient(#e66464, #9198e5) ; */
+        }
+        .header-dev{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
+<div class="heading-dev">
+    <h1 class="header-dev">Developed by <a class="header-dev" href="https://vsanjay.netlify.app" target="new window">V Sanjay</a></h1>
+</div>
     <div class="main">
         <h1>Text to QR Code</h1>
-        <input type="text" name="" id="input" autocomplete="off"/>
+        <input type="text" name="" id="input" autocomplete="off" required/>
         <button type="submit" onclick="func()" id="submit">Generate QR</button>
         <img src="" id="img" alt="">
     </div>
 
 <script>
     function func(){
-        var x = document.getElementById('input').value;
-        var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${x}`;
-
-        var img = document.getElementById('img');
-        img.src = url;
+    var text = document.getElementById("input").value;
+        if (text == ""){
+            alert("Something should be entered")
+            return false
+        }else{
+            var x = document.getElementById('input').value;
+            var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${x}`;
+            var img = document.getElementById('img');
+            img.src = url;
+        }
     }
+    // function func(){
+    //     var x = document.getElementById('input').value;
+    //     var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${x}`;
+
+    //     var img = document.getElementById('img');
+    //     img.src = url;
+    // }
+    
 </script>
 </body>
 </html>
